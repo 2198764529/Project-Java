@@ -38,7 +38,7 @@ public class Files {
 		String fileName=null;
       
         System.out.println("输入要查询的文件名");
-        // 判断是否还有输入
+        
         if (scan.hasNextLine()) {
         	fileName = scan.nextLine();
             System.out.println("文件名：" + fileName);
