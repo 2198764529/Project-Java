@@ -8,15 +8,12 @@ public class Files {
         File file = new File(fileName);
         Reader reader = null;
         try {
-            System.out.println("ÒÔ×Ö·ûÎªµ¥Î»¶ÁÈ¡ÎÄ¼şÄÚÈİ£¬Ò»´Î¶ÁÒ»¸ö×Ö½Ú£º");
-            // Ò»´Î¶ÁÒ»¸ö×Ö·û
+            
             reader = new InputStreamReader(new FileInputStream(file),"UTF-8");
 
             int tempchar;
             while ((tempchar = reader.read()) != -1) {
-                // ¶ÔÓÚwindowsÏÂ£¬\r\nÕâÁ½¸ö×Ö·ûÔÚÒ»ÆğÊ±£¬±íÊ¾Ò»¸ö»»ĞĞ¡£
-                // µ«Èç¹ûÕâÁ½¸ö×Ö·û·Ö¿ªÏÔÊ¾Ê±£¬»á»»Á½´ÎĞĞ¡£
-                // Òò´Ë£¬ÆÁ±Îµô\r£¬»òÕßÆÁ±Î\n¡£·ñÔò£¬½«»á¶à³öºÜ¶à¿ÕĞĞ¡£
+                
                 if (((char) tempchar) != '\r') {
                     System.out.print((char) tempchar);
                 }
@@ -39,12 +36,12 @@ public class Files {
 		Scanner scan = new Scanner(System.in);
  
 		String fileName=null;
-        // nextLine·½Ê½½ÓÊÕ×Ö·û´®
-        System.out.println("ÊäÈëÒª²éÑ¯µÄÎÄ¼şÃû");
-        // ÅĞ¶ÏÊÇ·ñ»¹ÓĞÊäÈë
+      
+        System.out.println("è¾“å…¥è¦æŸ¥è¯¢çš„æ–‡ä»¶å");
+        // åˆ¤æ–­æ˜¯å¦è¿˜æœ‰è¾“å…¥
         if (scan.hasNextLine()) {
         	fileName = scan.nextLine();
-            System.out.println("ÎÄ¼şÃû£º" + fileName);
+            System.out.println("æ–‡ä»¶åï¼š" + fileName);
         }
         scan.close();
         readFile(fileName);
