@@ -18,6 +18,6 @@ public class Characters {
         }
         buff.close();
    
-        System.out.println("×Ö·ûÊý£º" + charCount);
+        System.out.println("å­—ç¬¦æ•°ï¼š" + charCount);
     }
 }
