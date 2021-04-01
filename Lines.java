@@ -11,29 +11,34 @@ import java.util.Scanner;
 
 public class Lines {
 
-	public Lines(String str) {
-		
-	}
-	
-	public static void readFile(String fileName) throws FileNotFoundException {
+	public static void readFile(String fileName) {
         File file = new File(fileName);
-        InputStream in = new FileInputStream(file);
-    }
-	
-	public static void main(String[] args) throws IOException {
-		
-		Scanner scan = new Scanner(System.in);
- 
-		String fileName=null;
-        // nextLine方式接收字符串
-        System.out.println("输入要查询的文件名");
-        // 判断是否还有输入
-        if (scan.hasNextLine()) {
-        	fileName = scan.nextLine();
-            System.out.println("文件名：" + fileName);
+        Reader reader = null;
+        try {
+            reader = new InputStreamReader(new FileInputStream(file),"UTF-8");
+
+            int tempchar,i=0;
+            String s = "";
+            while ((tempchar = reader.read()) != -1) {
+                if (((char) tempchar) != '\r') {              	
+                    //System.out.println((char) tempchar);
+                }else {
+                	i++;
+                }
+            }
+            
+            System.out.println("lines: "+i);
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e1) {
+                }
+            }
         }
-        scan.close();
-        readFile(fileName);
-       
-	}
+    }
 }
+
