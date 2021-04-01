@@ -14,10 +14,9 @@ import java.util.regex.Pattern;
 
 public class Word {
 	
-    
-    public static void main(String[] args) throws IOException {
-       
-    	File file = new File("D:/eclipse/a.txt");//定义一个file对象，用来初始化FileReader
+	public static void word(String fileName) throws IOException {
+	       
+    	File file = new File(fileName);//定义一个file对象，用来初始化FileReader
     	if(!file.exists()){
     		System.out.println(0);
         }
@@ -27,11 +26,11 @@ public class Word {
         inputStream.read(bytes);
         inputStream.close();
         String str =new String(bytes, StandardCharsets.UTF_8);
-        System.out.println(str);
+        //System.out.println(str);
         
         String[] str1 = str.split("\\s+");
         for(String ss : str1){
-            System.out.println(ss);
+            //System.out.println(ss);
         }
         int i;
         
@@ -41,7 +40,12 @@ public class Word {
         // 创建 Pattern 对象
         Pattern r = Pattern.compile(pattern);
         Pattern r1 = Pattern.compile(pattern1);
-        String[] str2 = new String[str1.length];
+        
+        
+        
+      //  String[] str2 = new String[str1.length];
+        ArrayList<String> lists =new ArrayList<>();
+       
         int k=0;
         // 现在创建 matcher 对象
         for(i=0;i<str1.length;i++){
@@ -63,18 +67,16 @@ public class Word {
     				
     			}
         		str1[i]=sb.toString();
-        		System.out.println(str1[i]);
-        		str2[k]=str1[i];
-        		k++;
+        		//System.out.println(str1[i]);
+        		lists.add(str1[i]);
+        		
         	}
         }
 
-        
-        List list=Arrays.asList(str2);
-        
-        Set set=new HashSet(list);
+        //System.out.println("words: "+lists.size());
+        Set set=new HashSet(lists);
         set.remove(null);
-        System.out.println("words"+set.size());
+        System.out.println("words: "+set.size());
 
     }
 }
