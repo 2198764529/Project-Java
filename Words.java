@@ -19,9 +19,9 @@ import java.util.regex.Pattern;
 public class Words {
 	
 
-	public static void main(String[] args) throws IOException {
+	public static void words(String fileName) throws IOException {
 	       
-    	File file = new File("D:/eclipse/a.txt");//定义一个file对象，用来初始化FileReader
+    	File file = new File(fileName);//定义一个file对象，用来初始化FileReader
     	if(!file.exists()){
     		System.out.println(0);
         }
@@ -31,12 +31,12 @@ public class Words {
         inputStream.read(bytes);
         inputStream.close();
         String str =new String(bytes, StandardCharsets.UTF_8);
-        System.out.println(str);
+       // System.out.println(str);
         
         String[] str1 = str.split("\\s+");
-        for(String ss : str1){
-            System.out.println(ss);
-        }
+//        for(String ss : str1){
+//            System.out.println(ss);
+//        }
         int i=0;
         
         // 按指定模式在字符串查找
@@ -72,13 +72,13 @@ public class Words {
     				
     			}
         		str1[i]=sb.toString();
-        		System.out.println(str1[i]);
+        		//System.out.println(str1[i]);
         		lists.add(str1[i]);
         		
         	}
         }
 
-        System.out.println("words: "+lists.size());
+      //  System.out.println("words: "+lists.size());
         
         Map<String,Integer> map = new HashMap<>();
         for (String item : lists) {
@@ -93,9 +93,9 @@ public class Words {
         for (String key : map.keySet()) {
         	num[k]=map.get(key);
         	str2[k]=key;
-            System.out.println("元素"+key+"出现的次数为"+map.get(key));
-            System.out.println(num[k]);
-            System.out.println(str2[k]);
+           // System.out.println("元素"+key+"出现的次数为"+map.get(key));
+          //  System.out.println(num[k]);
+           // System.out.println(str2[k]);
             k++;
         }
         int max,n,temp,m=0;
@@ -114,7 +114,7 @@ public class Words {
         	temp1=str2[m];
         	str2[m]=str2[max];
         	str2[max]=temp1;
-        	System.out.println(num[m]+str2[m]);
+        //	System.out.println(num[m]+str2[m]);
         
         }
         //Set set=new HashSet<>(Arrays.asList(num));
@@ -139,14 +139,14 @@ public class Words {
     		
         }
         if(list2.size()<=10) {
-        	for(k=0;k<list2.size();k++) {
-        		System.out.println("word"+k+": "+list2.get(k));
+        	for(k=1;k<=list2.size();k++) {
+        		System.out.println("word"+k+": "+list2.get(k-1));
             	
             }
     		
     	}else {
-    		for(k=0;k<10;k++) {
-        		System.out.println("word"+k+": "+list2.get(k));
+    		for(k=1;k<10;k++) {
+        		System.out.println("word"+k+": "+list2.get(k-1));
             	
             }
     	}
