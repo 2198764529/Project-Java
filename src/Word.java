@@ -16,7 +16,7 @@ public class Word {
 	
 	public static void word(String fileName) throws IOException {
 	       
-    	File file = new File(fileName);//¶¨ÒåÒ»¸öfile¶ÔÏó£¬ÓÃÀ´³õÊ¼»¯FileReader
+    	File file = new File(fileName);//å®šä¹‰ä¸€ä¸ªfileå¯¹è±¡ï¼Œç”¨æ¥åˆå§‹åŒ–FileReader
     	if(!file.exists()){
     		System.out.println(0);
         }
@@ -34,17 +34,17 @@ public class Word {
         }
         int i;
         
-        // °´Ö¸¶¨Ä£Ê½ÔÚ×Ö·û´®²éÕÒ
-        String pattern = "[a-zA-Z]{4}[a-zA-Z0-9]";
+        // æŒ‰æŒ‡å®šæ¨¡å¼åœ¨å­—ç¬¦ä¸²æŸ¥æ‰¾
+        String pattern = "^[a-zA-Z]{4}[a-zA-Z0-9]*$";
         String pattern1 = "[a-zA-Z]{4}$";
-        // ´´½¨ Pattern ¶ÔÏó
+        // åˆ›å»º Pattern å¯¹è±¡
         Pattern r = Pattern.compile(pattern);
         Pattern r1 = Pattern.compile(pattern1);          
       //  String[] str2 = new String[str1.length];
         ArrayList<String> lists =new ArrayList<>();
        
         int k=0;
-        // ÏÖÔÚ´´½¨ matcher ¶ÔÏó
+        // ç°åœ¨åˆ›å»º matcher å¯¹è±¡
         for(i=0;i<str1.length;i++){
         	Matcher m = r.matcher(str1[i]);
         	Matcher m1 = r1.matcher(str1[i]);
@@ -52,10 +52,10 @@ public class Word {
         		StringBuffer sb = new StringBuffer();
         		for(int j=0; j < str1[i].length(); j++) {
         			
-    				//Ë÷ÒıÖ¸¶¨Î»ÖÃµÄ×Ö·û
+    				//ç´¢å¼•æŒ‡å®šä½ç½®çš„å­—ç¬¦
     				char c = str1[i].charAt(j);
     				
-    				//ÅĞ¶ÏÊÇ·ñÎªĞ¡Ğ´×ÖÄ¸
+    				//åˆ¤æ–­æ˜¯å¦ä¸ºå°å†™å­—æ¯
     				if(Character.isUpperCase(c)) {
     					sb.append(Character.toLowerCase(c));
     				}else {
