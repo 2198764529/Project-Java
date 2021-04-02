@@ -9,12 +9,12 @@ public class WordCount {
 		Scanner scan = new Scanner(System.in);
 		 
 		String fileName=null;
-        // nextLine·½Ê½½ÓÊÕ×Ö·û´®
-        System.out.println("ÊäÈëÒª²éÑ¯µÄÎÄ¼şÃû");
-        // ÅĞ¶ÏÊÇ·ñ»¹ÓĞÊäÈë
+        // nextLineæ–¹å¼æ¥æ”¶å­—ç¬¦ä¸²
+        System.out.println("è¾“å…¥è¦æŸ¥è¯¢çš„æ–‡ä»¶å");
+        // åˆ¤æ–­æ˜¯å¦è¿˜æœ‰è¾“å…¥
         if (scan.hasNextLine()) {
         	fileName = scan.nextLine();
-            System.out.println("ÎÄ¼şÃû£º" + fileName);
+            System.out.println("æ–‡ä»¶åï¼š" + fileName);
         }
         scan.close();
         Characters characters=new Characters();
@@ -22,7 +22,7 @@ public class WordCount {
         Word w=new Word();
         w.word(fileName);
         Lines l=new Lines();
-        l.readFile(fileName);
+        l.lines(fileName);
         Words ws=new Words();
         ws.words(fileName);
 	}
